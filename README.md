@@ -14,6 +14,7 @@ A static website generator that converts Markdown files to HTML files.
 ## 🚀 Running the script
 ```
 python3 md2web/main.py [--input-path] [--output-path] [--theme-name]
+```
 
 ## 🎨 Themes
 - [x] `Readme Pro` - Github README like theme
