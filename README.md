@@ -7,6 +7,14 @@ A static website generator that converts Markdown files to HTML files.
 - [x] Custom navigation bar syntax 
 - [ ] Custom text styling syntax (foreground color, background color, font)"
 
+## ⚙️ Requirements
+- `markdown` (pip)
+- `jinja2` (pip)
+
+## 🚀 Running the script
+```
+python3 md2web/main.py [--input-path] [--output-path] [--theme-name]
+
 ## 🎨 Themes
 - [x] `Readme Pro` - Github README like theme
 - [ ] `Superminimal` - Extremely minimalistic, white on pure black
