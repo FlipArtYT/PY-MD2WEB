@@ -16,11 +16,11 @@ A static website generator that converts Markdown files to HTML files.
 ## Custom Syntax
 ### Navigation bar
 > [!WARNING]
-> Multiple navigation bars currently do not get handled correctly. Please only use one navigation bar in a file to avoid unexpected behaviour.
+> Multiple navigation bars currently do not get handled correctly. Please only use one navigation bar per file to avoid unexpected behaviour.
 ```
 :::
 - [Link 1](https://website1.com/);
-- [Link 2](https://website1.com/);
-- [Link 3](https://website1.com/);
+- [Link 2](https://website2.com/);
+- [Link 3](https://website3.com/);
 :::
 ```
