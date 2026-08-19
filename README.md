@@ -1,6 +1,7 @@
 # 📝 PY-MD2WEB
 ![Static Badge](https://img.shields.io/badge/Python-3.14-e9f23d?logo=python&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/Jinja2-red?style=flat&logo=Jinja&labelColor=black)
+<br>
 A static website generator that converts Markdown files to HTML files.
 
 ## ⭐️ Main Features
