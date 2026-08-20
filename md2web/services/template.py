@@ -22,12 +22,17 @@ class TemplateHandler:
 
         return False
 
-    def add_boilerplate_and_theme(self, html_input: str, theme: str) -> str:
+    def add_boilerplate_and_theme(self, html_input: str, theme: str, title: str = None) -> str:
         if not self.theme_exists(theme):
             print("Invalid theme")
             return html_input
-
+        
         template = env.get_template(f"{theme}/template.html")
-        output = template.render(body = html_input)
+
+        if title:
+            output = template.render(title = title, body = html_input)
+
+        else:
+            output = template.render(body = html_input)
 
         return output

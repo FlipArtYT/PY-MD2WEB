@@ -1,4 +1,5 @@
 import re
+from urllib.parse import urlparse
 from services.constants import CUSTOM_MD_NAVBAR_REGEX, MD_LINK_REGEX, CUSTOM_MD_CODE_CITATION_REGEX
 
 class BaseMDConverterExtension:
@@ -28,7 +29,7 @@ class NavigationConverterExtension(BaseMDConverterExtension):
                 title = match.group(1)
                 url = match.group(2)
 
-                if url.endswith(".md"):
+                if url.endswith(".md") and self._url_is_absolute(url=url):
                     url = url.replace(".md", ".html")
 
                 link_list.append({"title": title, "url": url})
@@ -36,6 +37,9 @@ class NavigationConverterExtension(BaseMDConverterExtension):
         formatted_links = [f"<a href=\"{link["url"]}\">{link["title"]}</a>\n" for link in link_list]
 
         return "\n".join(formatted_links)
+
+    def _url_is_absolute(self, url: str) -> bool:
+        return bool(urlparse(url).netloc)
 
 # class CodeCitationConverterExtension(BaseMDConverterExtension):
 #     def convert_md_extension_el_to_html(self, md_input: str) -> str:
