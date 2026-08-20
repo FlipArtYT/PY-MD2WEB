@@ -29,7 +29,7 @@ class NavigationConverterExtension(BaseMDConverterExtension):
                 title = match.group(1)
                 url = match.group(2)
 
-                if url.endswith(".md") and self._url_is_absolute(url=url):
+                if url.endswith(".md") and not self._url_is_absolute(url=url):
                     url = url.replace(".md", ".html")
 
                 link_list.append({"title": title, "url": url})

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ stylesheet }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0 1rem;
+            box-sizing: border-box;
+            background-color: #141311;
+            color: #ffffff;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+            max-width: 900px;
+            margin: auto
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            padding-bottom: 0.2em;
+        }
+
+        a {
+            color: #e0b00e;
+        }
+
+        a:hover {
+            color: #ffd755;
+        }
+
+        ol, ul {
+            padding-left: 2em;
+        }
+
+        li {
+            margin-top: 0.25em;
+        }
+
+        code {
+            background-color: #656c7633;
+            border-radius: 6px;
+            margin: 0;
+            padding: 0.2em 0.4em;
+            font-size: 90%;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 4rem;
+        }
+
+        nav a {
+            padding: 15px;
+        }
+
+    </style>
+    <title>{{ title }}</title>
+</head>
+<body>
+    {{ body }}
+</body>
+</html>

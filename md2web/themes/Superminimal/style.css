@@ -1,15 +1,14 @@
 body {
-    margin: 0;
-    padding: 2rem;
+    margin: 0 2rem;
+    padding: 0;
     box-sizing: border-box;
-    background-color: #0d1117;
+    background-color: #000;
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    border-bottom: 1px solid #3d444db3;
-    padding-bottom: 0.3em;
+    padding-bottom: 0.2em;
 }
 
 a {
@@ -35,22 +34,26 @@ code {
 nav {
     display: flex;
     flex-direction: row;
-    border: 1px solid #3d444db3;
+    border-bottom: 1px solid #1a1a1a;
+    background-color: #000;
     margin-bottom: 4rem;
+    padding: 0 1rem;
 }
 
 nav a {
-    padding: 15px 20px;
+    padding: 17px 20px;
     color: #fff;
     text-decoration: none;
+    transition: 0.15s all;
 }
 
 nav a:hover {
-    color: #c7c7c7;
+    background-color: #0e0d0d;
+    box-shadow: 0 2px 0 #fff;
 }
 
 @media screen and (min-width: 768px) {
     body {
-        padding: 2rem 10rem;
+        padding: 0.2rem 5rem;
     }
 }

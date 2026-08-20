@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ stylesheet }}">
+    <style>
+        body {
+            margin: 0 2rem;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #000;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            padding-bottom: 0.2em;
+        }
+
+        a {
+            color: #4493f8;
+        }
+
+        ol, ul {
+            padding-left: 2em;
+        }
+
+        li {
+            margin-top: 0.25em;
+        }
+
+        code {
+            background-color: #656c7633;
+            border-radius: 6px;
+            margin: 0;
+            padding: 0.2em 0.4em;
+            font-size: 90%;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid #1a1a1a;
+            background-color: #000;
+            margin-bottom: 4rem;
+            padding: 0 1rem;
+        }
+
+        nav a {
+            padding: 17px 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.15s all;
+        }
+
+        nav a:hover {
+            background-color: #0e0d0d;
+            box-shadow: 0 2px 0 #fff;
+        }
+
+        @media screen and (min-width: 768px) {
+            body {
+                padding: 0.2rem 5rem;
+            }
+        }
+
+    </style>
+    <title>{{ title }}</title>
+</head>
+<body>
+    {{ body }}
+</body>
+</html>
