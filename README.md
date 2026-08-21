@@ -8,7 +8,7 @@ A static website generator that converts Markdown files to HTML files.
 - [x] Multiple webpage themes (using CSS stylesheets)
 - [x] Easily convert multiple webpages from a folder and maintain their original file structure
 - [x] Custom navigation bar syntax 
-- [ ] Custom text styling syntax (foreground color, background color, font)
+- [x] Custom text styling syntax (foreground color, background color, font)
 
 ## ⚙️ Requirements
 - `markdown` (pip)
