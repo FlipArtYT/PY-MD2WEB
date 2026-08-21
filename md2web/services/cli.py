@@ -2,7 +2,7 @@ import os
 import argparse
 from services.template import TemplateHandler
 from services.converter import FullMDtoHTMLFileConverter
-from services.md_extensions import NavigationConverterExtension
+from services.md_extensions import NavigationConverterExtension, TextStylingConverterExtension
 from pathlib import Path
 
 def handle_args(args: argparse.Namespace):
@@ -15,7 +15,7 @@ def handle_args(args: argparse.Namespace):
         input_path = Path(args.input_path)
         output_path = Path(args.output_path) if args.output_path is not None else Path.cwd() / Path(input_path.stem + ".html")
         theme_name = args.theme_name
-        md_file_converter = FullMDtoHTMLFileConverter([NavigationConverterExtension(),])
+        md_file_converter = FullMDtoHTMLFileConverter([NavigationConverterExtension(), TextStylingConverterExtension()])
 
         if input_path.exists():
 

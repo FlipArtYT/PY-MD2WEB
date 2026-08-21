@@ -1,6 +1,6 @@
 import re
 from urllib.parse import urlparse
-from services.constants import CUSTOM_MD_NAVBAR_REGEX, MD_LINK_REGEX, CUSTOM_MD_CODE_CITATION_REGEX
+from services.constants import CUSTOM_MD_NAVBAR_REGEX, MD_LINK_REGEX, CUSTOM_MD_STYLING_PROPERTY_REGEX
 
 class BaseMDConverterExtension:
     def convert_md_extension_el_to_html(md_input: str):
@@ -40,6 +40,49 @@ class NavigationConverterExtension(BaseMDConverterExtension):
 
     def _url_is_absolute(self, url: str) -> bool:
         return bool(urlparse(url).netloc)
+
+class TextStylingConverterExtension(BaseMDConverterExtension):
+    def convert_md_extension_el_to_html(self, md_input: str) -> str:
+        html_output = md_input
+
+        while True:
+            match = re.search(CUSTOM_MD_STYLING_PROPERTY_REGEX, html_output)
+
+            if not match:
+                break
+
+            match_index = match.span()
+            style_properties = match.group("property")
+            content = match.group("content")
+
+            converted_html_element = self.convert_property_to_tag(style_properties, content)
+
+            html_output = html_output[:match_index[0]] + converted_html_element + html_output[match_index[1]:]
+
+        return html_output
+
+    def convert_property_to_tag(self, properties: str, content: str) -> str:
+        property_list = properties.split(";")
+        inline_css_styles = []
+
+        for p in property_list:
+            splitted_property = p.split(":")
+
+            if len(splitted_property) > 1:
+                rule = splitted_property[0].strip()
+                value = splitted_property[1].strip()
+
+                if rule == "fg-color":
+                    inline_css_styles.append("color: " + value)
+
+                elif rule == "bg-color":
+                    inline_css_styles.append("background-color: " + value)
+
+        if len(inline_css_styles) > 0:
+            return f"<span style=\"{"; ".join(inline_css_styles)}\">{content}</span>"
+
+        else:
+            return content
 
 # class CodeCitationConverterExtension(BaseMDConverterExtension):
 #     def convert_md_extension_el_to_html(self, md_input: str) -> str:

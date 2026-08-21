@@ -42,6 +42,8 @@ class FullMDtoHTMLFileConverter:
             if input_path.is_dir():
                 output_path = output_path / Path(input_path.stem + ".html")
 
+            
+
             with open(output_path, "w") as f:
                 f.write(html_contents)
 

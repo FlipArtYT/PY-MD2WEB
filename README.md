@@ -26,6 +26,7 @@ python3 md2web/main.py [--input-path] [--output-path] [--theme-name]
 - [x] `alnwlsn` (Color Variants) - Simple styling, big padding inspired by [alnwlsn's website](https://alnwlsn.com/)
 
 ## Custom Syntax
+
 ### Navigation bar
 > [!WARNING]
 > Multiple navigation bars currently do not get handled correctly. Please only use one navigation bar per file to avoid unexpected behaviour.
@@ -35,4 +36,12 @@ python3 md2web/main.py [--input-path] [--output-path] [--theme-name]
 - [Link 2](https://website2.com/);
 - [Link 3](https://website3.com/);
 :::
+```
+
+### Text Styling
+> [!NOTE]
+> `fg-color` and `bg-color` are the only working properties for now. More will be added soon.
+```
+{{fg-color: #3eadc2} This foreground color seems familiar.}
+{{bg-color: #ba3249} This background color also seems familiar.}
 ```
