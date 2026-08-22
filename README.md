@@ -45,3 +45,8 @@ python3 md2web/main.py [--input-path] [--output-path] [--theme-name]
 {{fg-color: #3eadc2} This foreground color seems familiar.}
 {{bg-color: #ba3249} This background color also seems familiar.}
 ```
+
+## 📃 To-do
+- [ ] Let extensions use XMLTree to create tags
+- [ ] Pretty Printing
+- [ ] Seperate navigation and body to control padding only on the body text
