@@ -1,6 +1,11 @@
 import re
 from urllib.parse import urlparse
-from services.constants import CUSTOM_MD_NAVBAR_REGEX, MD_LINK_REGEX, CUSTOM_MD_STYLING_PROPERTY_REGEX
+from services.constants import (
+    CUSTOM_MD_NAVBAR_REGEX, 
+    MD_LINK_REGEX, 
+    CUSTOM_MD_STYLING_PROPERTY_REGEX,
+    EXT_MD_MARKERS
+)
 
 class BaseMDConverterExtension:
     def convert_md_extension_el_to_html(md_input: str):
@@ -78,11 +83,35 @@ class TextStylingConverterExtension(BaseMDConverterExtension):
                 elif rule == "bg-color":
                     inline_css_styles.append("background-color: " + value)
 
+                elif rule == "border-color":
+                    inline_css_styles.append("border: solid 1px " + value)
+
         if len(inline_css_styles) > 0:
             return f"<span style=\"{"; ".join(inline_css_styles)}\">{content}</span>"
 
         else:
             return content
+
+class MarkerConverterExtension(BaseMDConverterExtension):
+    def convert_md_extension_el_to_html(self, md_input: str) -> str:
+        html_output = md_input
+
+        for marker in EXT_MD_MARKERS:
+            while True:
+                match = re.search(marker[0], html_output)
+    
+                if not match:
+                    break
+    
+                match_index = match.span()
+                content = match.group(1)
+                converted_html_element = marker[1][0] + content + marker[1][1]
+
+                print(f"Match at {match_index} from {content} regex: {marker[0]}")
+
+                html_output = html_output[:match_index[0]] + converted_html_element + html_output[match_index[1]:]
+
+        return html_output
 
 # class CodeCitationConverterExtension(BaseMDConverterExtension):
 #     def convert_md_extension_el_to_html(self, md_input: str) -> str:

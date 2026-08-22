@@ -21,6 +21,10 @@ a:hover {
     color: #ffd755;
 }
 
+span {
+    background-color: #4493f8;
+}
+
 ol, ul {
     padding-left: 2em;
 }
